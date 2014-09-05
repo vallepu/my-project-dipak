@@ -1,0 +1,490 @@
+<HTA:Application />
+<html>
+<head>
+
+<script>
+
+function getConnection(){
+var conn=new ActiveXObject("ADODB.Connection")
+conn.Provider="Microsoft.Jet.OLEDB.4.0"
+conn.Open("finbase.mdb")
+return conn;
+}
+
+
+var conn = getConnection()
+conn.close()
+
+function extractFieldVals(form){
+this['extracted'] = new Array()
+var colNames = new Array()
+var colValues = new Array()
+var retVals = new Array()
+	for (x in this)
+	{
+		if((form[x]) && (x != 'ID')){
+			colNames[colNames.length] = this[x]
+			colValues[colValues.length] = "'" + form[x].value + "'"
+//		alert(form[x].value)
+		}
+	}
+this['extracted']['colNames'] = colNames
+this['extracted']['colValues'] = colValues
+
+this['extracted'].adddnew = function(one,two){
+
+			this.colNames[colNames.length] = [one]
+			this.colValues[colValues.length] = "'" + two + "'"
+}
+//alert(colNames)
+return retVals;
+}
+
+</script>
+
+
+
+
+</head>
+
+
+<body>
+
+
+
+
+<script>
+
+
+function cmsdoc(){
+
+var Bank = {BankName:"DocCap",BankDesc:"DocDesc",URL:"Prop1",Phone:"Prop2",Logo:"Prop3",ID:"ID"}
+
+
+//var Bank = {HolderName:"DocCap",HolderPAN:"DocDesc",ID:"ID"}
+Bank['control'] = new Array()
+Bank['control']['docType'] = "Bank"
+
+
+
+Bank.extractFieldVals = extractFieldVals
+
+
+	Bank.newBank = function(form){
+		Bank.extractFieldVals(form)
+		extracted = this['extracted']
+
+		extracted.adddnew('DocType',this['control']['docType']);
+		extracted.adddnew('DocFrag','Head');
+		insertStmt = "insert into Obj_Props(" + extracted['colNames'] + ") values (" + extracted['colValues'] + ");"
+
+
+var conn = getConnection()
+var rs = new ActiveXObject("ADODB.recordset")
+rs.Open(insertStmt, conn,3,3)
+conn.close()
+
+
+		alert(insertStmt)
+	}
+
+
+	Bank.fetchBank = function(bankId){
+	var  Stmt = "select * from Obj_Props where DocType='" + this['control']['docType'] +"' and DocFrag='Head' and ID = " + bankId
+
+	var conn = getConnection()
+	var rs = new ActiveXObject("ADODB.recordset")
+	rs.Open(Stmt, conn,3,3)
+
+	rs.MoveFirst()
+
+
+	this.Head = new Array();
+
+	
+	for (x in this)
+	{
+	
+		if(typeof(this[x]) == "string"){
+//			alert(x + ":" + rs.Fields.Item(this[x]))
+			this.Head[x] = rs.Fields.Item(this[x]).value
+		}
+	}
+
+
+		conn.close()
+
+	}
+
+return Bank
+}
+
+var B = cmsdoc()
+//
+//B.newBank(document.getElementsByTagName("FORM")[0])
+//
+
+//alert(Bank['colValues'])
+//B.fetchBank(7)
+
+for (z in B.Head)
+{
+	alert(z + " : " + B.Head[z])
+}
+
+
+
+function loadXml(divName){
+//	alert(document.getElementById(divName).innerHTML)
+
+    xmlDoc = new ActiveXObject("Microsoft.XMLDOM");
+      xmlDoc.async = false;
+//      xmlDoc.onreadystatechange = readXML;
+//alert(document.getElementById(divName).innerHTML)
+      xmlDoc.loadXML(document.getElementById(divName).innerHTML);
+
+	return xmlDoc
+}
+
+</script>
+
+<!--
+<form onsubmit="javascript:B.newBank(this)">
+	<table border=1>
+<script>
+for (x in B)
+{
+		if(typeof(B[x]) == "string"){
+			document.write("<tr><td>" + x + "</td><td><input name='" + x + "'></td></tr>")	
+		}
+}
+
+</script>
+</table>
+<input type=submit>
+</form>
+-->
+
+
+<div id="Bank" class="XMLTemplates">
+<Bank>
+	<Header>
+		<BankName fieldname="DocCap" />
+		<BankDesc fieldname="DocDesc" />
+		<URL fieldname="Prop1" />
+		<Phone fieldname="Prop2" />
+		<Logo fieldname="Prop3" />
+	</Header>
+</Bank>
+</div>
+
+<div id="Accountbox" class="XMLTemplates">
+	<account>
+		<Header>
+			<AcctCap fieldname="DocCap" />
+			<AcctDesc fieldname="DocDesc" />
+			<AcctNo fieldname="Prop1" />
+			<AcctBank fieldname="Prop2" cyclicDoc="Bank.ID" cyclicID="" />
+		</Header>
+		<Holders cyclicDoc="account.ID" cyclicID="">
+			<AcctNo fieldname="Prop1" cyclicDoc="account.ID" basedon="account.AcctBank" cyclicID="" />
+			<HolderCustId fieldname="Prop2" cyclicDoc="HolderCustId.ID" basedon="account.AcctBank" cyclicID="" />
+		</Holders>
+	</account>
+</div>
+
+<div id="Accounth" class="XMLTemplates">
+<accountHolders>
+	<Header>
+		<HolderName  fieldname="DocCap"		/>
+		<HolderPAN fieldname="Prop1"/>
+		<AddressOne fieldname="Prop2"/>
+		<AddressTwo fieldname="Prop3"/>
+	</Header>
+</accountHolders>
+</div>
+
+
+<div id="TravelGuide" class="XMLTemplates">
+<TravelGuide>
+	<Header>
+		<cityName fieldName="DocCap" />
+		<category fieldName="prop1" />
+		<history fieldName="prop2" />
+		<season fieldName="prop3" />
+		<climate fieldName="prop4" />
+		<transport fieldName="prop5" />
+		<landMark fieldName="prop6" />
+	</Header>
+	<LocalInfo cyclicRef="Header" cyclicRefNo="id">
+		<id fieldName="id"/>
+		<cueWords fieldName="prop1" />
+		<englishHindi fieldName="prop2" />
+		<gateways fieldName="prop3" />
+		<entertainment fieldName="prop4" />
+		<contacts fieldName="prop5" />
+		<localLang fieldName="prop6" />
+		<tips fieldName="prop7" />
+		<travelTips fieldName="prop8" />
+		<shopping fieldName="prop9" />
+		<religiuosPlaces fieldName="prop10" />
+	</LocalInfo>
+</TravelGuide>
+</div>
+
+<div id="AccountCust" class="XMLTemplates">
+<HolderCustId>
+	<Header>
+		<CustId fieldname="DocCap"/>
+		<HolderId fieldname="Prop1" cyclicDoc="accountHolders.ID" cyclicID="" />
+		<BankId fieldname="Prop2" cyclicDoc="Bank.ID" cyclicID="" />
+	</Header>
+</HolderCustId>
+</div>
+
+<script>
+
+
+function extractFieldVals(form,frag){
+this['extracted'] = new Array()
+var colNames = new Array()
+var colValues = new Array()
+var retVals = new Array()
+	for (x in frag)
+	{
+//	alert(x)
+		if((form[x]) && (x != 'ID')){
+			colNames[colNames.length] = frag[x]['fieldname']
+			colValues[colValues.length] = "'" + form[x].value + "'"
+//		alert(form[x].value)
+		}
+	}
+this['extracted']['colNames'] = colNames
+this['extracted']['colValues'] = colValues
+
+this['extracted'].adddnew = function(one,two){
+
+			this.colNames[colNames.length] = [one]
+			this.colValues[colValues.length] = "'" + two + "'"
+}
+//alert(colNames)
+return retVals;
+}
+
+
+
+function Doc(doctype){
+var Documents = {DocumentType:"Blank"}
+
+Documents.docXml = loadXml(doctype)
+Documents.doctype = Documents.docXml.documentElement.nodeName
+//Create Document Structure
+		Documents['Struct'] = new Array()
+
+		StructNodes = Documents.docXml.documentElement.childNodes
+
+		for (var j=0;j<StructNodes.length;j++)
+		{
+			Documents['Struct'][StructNodes[j].nodeName] = new Array()
+
+			HeaderProps = StructNodes[j].childNodes
+			for (var i=0;i<HeaderProps.length;i++)
+			{
+
+				HeadAttbs = HeaderProps[i].attributes 
+				//alert([HeaderProps[i].nodeName] + " " + HeadAttbs.length + "-" + HeadAttbs[(HeadAttbs.length - 1)].name)
+			Documents['Struct'][StructNodes[j].nodeName][HeaderProps[i].nodeName] = new Array()
+				for (atti=0;atti<HeadAttbs.length;atti++)
+				{
+					//alert("Attri " + atti + " - " + HeadAttbs[atti].name + " " + HeadAttbs[atti].value)
+					Documents['Struct'][StructNodes[j].nodeName][HeaderProps[i].nodeName][HeadAttbs[atti].name] = HeadAttbs[atti].value
+				}
+				//Documents['Struct'][StructNodes[j].nodeName][HeaderProps[i].nodeName] = HeaderProps[i].getAttribute("fieldname")
+				
+			}
+		}
+//Create Document Structure Ends
+
+
+
+//Dynamically Build a form for Doc Frag
+Documents.getForm = function(docfrag){
+	Documents.viewForm = document.createElement("FORM")
+	Documents.viewForm.docfrag = docfrag
+	TablePlot = document.createElement("TABLE")
+
+			for (HeadElem in Documents['Struct'][docfrag])
+				{
+				TablePlot.insertRow()
+				var TD = document.createElement("TD")
+				TD.innerHTML = HeadElem
+				TablePlot.rows[TablePlot.rows.length - 1].appendChild(TD)
+
+
+//Check if cyclic doc
+if(Documents['Struct'][docfrag][HeadElem]['cyclicDoc']){
+				alert(Documents['Struct'][docfrag][HeadElem]['cyclicDoc'])
+				var inptEle = document.createElement("<select name='" + HeadElem + "'>")
+				m = this.getLists(Documents['Struct'][docfrag][HeadElem]['cyclicDoc'])
+
+for (n in m)
+{
+	alert(n + ":" + m[n])
+
+						var opt = document.createElement("OPTION")
+					opt.innerHTML = m[n]
+					opt.value = n
+					inptEle.appendChild(opt)
+
+}
+
+
+}
+else
+{
+				var inptEle = document.createElement("<input name='" + HeadElem + "'>")
+}
+
+				var TDA = document.createElement("TD")
+//				var inptEle = document.createElement("<input name='" + HeadElem + "'>")
+				TDA.appendChild(inptEle)
+				TablePlot.rows[TablePlot.rows.length - 1].appendChild(TDA)
+				}
+
+
+			
+		TablePlot.insertRow()
+		var TD = document.createElement("TD")
+		TD.innerHTML = ""
+		TablePlot.rows[TablePlot.rows.length - 1].appendChild(TD)
+
+		var TD = document.createElement("TD")
+		var inptEle = document.createElement("INPUT")
+		inptEle.type = "submit"
+		TD.appendChild(inptEle)
+
+		TablePlot.rows[TablePlot.rows.length - 1].appendChild(TD)
+	Documents.viewForm.appendChild(TablePlot)
+
+		Documents.viewForm.onsubmit = function(){
+		Documents.newDocument(Documents.viewForm)
+		alert("Done")
+		return false;
+		}
+	Documents.extractFieldVals = extractFieldVals
+	return Documents.viewForm;
+}
+//Dynamically Build a form for Doc Frag Ends
+
+
+//Form Submit Create New Function
+	Documents.newDocument = function(form){
+		Documents.extractFieldVals(form,Documents['Struct'][form.docfrag])
+		extracted = Documents['extracted']
+
+		extracted.adddnew('DocType',Documents.doctype);
+		extracted.adddnew('DocFrag',form.docfrag);
+		insertStmt = "insert into Obj_Props(" + extracted['colNames'] + ") values (" + extracted['colValues'] + ");"
+		alert(insertStmt)
+
+var conn = getConnection()
+		var rs = new ActiveXObject("ADODB.recordset")
+		rs.Open(insertStmt, conn,3,3)
+		conn.close()
+		
+
+	}
+//Form Submit Create New Function Ends
+
+
+
+//Dynamically Build a List of Options for Cyclic Reference
+Documents.getLists = function(doctype){
+	spl = doctype.split(".")
+	alert(spl[0])
+
+	var  Stmt = "select ID,DocCap from Obj_Props where DocType='" + spl[0] +"' and DocFrag='HEADER';"
+	var conn = getConnection()
+	var rs = new ActiveXObject("ADODB.recordset")
+	rs.Open(Stmt, conn,3,3)
+
+//	rs.MoveFirst()
+
+
+	lists = new Array();
+
+while (!(rs.EOF))
+{
+			lists[rs.Fields.Item("ID")] = rs.Fields.Item("DocCap").value
+			rs.moveNext()
+}
+		conn.close()
+
+	return lists;
+}
+
+
+return Documents;
+}
+
+
+</script>
+<!--View Area-->
+<select id="selectDoc" onchange="updateFrags()">
+	<option>Select</option>
+</select><br>
+
+<select id="docFrag">
+</select>
+<br>
+<button onclick=showForm()>Show Form</button>
+<div id=formarea></div>
+
+<script>
+
+
+var Divs = document.getElementsByTagName("DIV")
+for (var i=0; i<Divs.length; i++)
+{
+//alert(dv.tag)
+	if (Divs[i].className == "XMLTemplates" )
+		{
+			var opt = document.createElement("OPTION")
+			opt.innerHTML = Divs[i].id
+			opt.value = Divs[i].id
+			document.getElementById("selectDoc").appendChild(opt)
+		}
+}
+
+
+		var DocInstance = ""
+
+function updateFrags(){
+//var DocInstance = Doc(document.getElementById("selectDoc").value)
+	DocInstance = Doc(document.getElementById("selectDoc").value)
+	document.getElementById("docFrag").innerHTML = ""
+	for (frags in DocInstance['Struct'])
+		{
+					var opt = document.createElement("OPTION")
+					opt.innerHTML = frags
+					opt.value = frags
+					document.getElementById("docFrag").appendChild(opt)
+		}
+/*
+var m = DocInstance.getLists("Bank.Id")
+for (n in m)
+{
+	alert(n + ":" + m[n])
+}
+*/
+}
+
+
+	function showForm(){
+		document.getElementById("formarea").innerHTML = ""
+		document.getElementById("formarea").appendChild(DocInstance.getForm(document.getElementById("docFrag").value))
+
+	}
+
+</script>
+<!-- View Area Ends -->
