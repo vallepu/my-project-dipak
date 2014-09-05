@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<HotelSearchResponse>
+<clientinfo>
+  <clientid>3536</clientid> 
+  <searchId>STGCKVSRHOT214</searchId> 
+  </clientinfo>
+<HotelSearchRequest>
+<hotelinfo>
+  <country>United Kingdom</country> 
+  <city>London</city> 
+  <checkindate>28/01/2010</checkindate> 
+  <noOfNight>2</noOfNight> 
+  <checkoutdate>30/01/2010</checkoutdate> 
+  <nationality>IND</nationality> 
+  <noofrooms>1</noofrooms> 
+  <starrating>4</starrating> 
+  <roomtype /> 
+  </hotelinfo>
+  </HotelSearchRequest>
+<HotelSearchDetails>
+<hoteldetail>
+  <hotelTrackId>STGCKVHTRI1721</hotelTrackId> 
+  <address /> 
+  <description /> 
+  <hotelId>1212548</hotelId> 
+  <pincode /> 
+  <phone>011442073884131</phone> 
+  <fax /> 
+  <credicards /> 
+  <checkintime /> 
+  <checkouttime /> 
+  <hotelfacility /> 
+  <roomfacility /> 
+  <meetingfacility /> 
+  <otherfacility>#Fitness Center#Restaurant(s)#Room Service#Bar/Lounge#24-Hour Front Desk#Valet Laundry#Currency Exchange#Business Services#Newsstand#Internet Access#Meeting/Banquet Facilities#Baggage Hold</otherfacility> 
+  <services /> 
+  <restaurants /> 
+  <areatransportation /> 
+  <email /> 
+  <website /> 
+  <location>London,United Kingdom</location> 
+  <cancellationpolicy /> 
+  <hotelname>Radisson Edwardian Grafton - DEMO</hotelname> 
+  <hoteldesc>Some Description for First Hotel</hoteldesc> 
+  <starrating>4.0</starrating> 
+  <city>london</city> 
+  <country>united kingdom</country> 
+  <map /> 
+  <image /> 
+  <currency>INR</currency> 
+  <isPostSearchRomingApplicable>N</isPostSearchRomingApplicable> 
+  <isExtraInfoRequiredForBooking>N</isExtraInfoRequiredForBooking> 
+<roomdetail>
+  <roomCombId>STGCKVRCMB002771</roomCombId> 
+  <roomtype>Leisure Standard</roomtype> 
+  <AllocationStatus>A</AllocationStatus> 
+  <rateType /> 
+  <inclusion_exclusion /> 
+  <luxurytax>0.0</luxurytax> 
+  <servicetax>0.0</servicetax> 
+  <roombasis /> 
+  <totalPrice>41332</totalPrice> 
+  <isPackage>N</isPackage> 
+  <additionalRoomDtl /> 
+<roomingPriceDetail>
+
+  <roominfo>
+  <roomno>1</roomno> 
+  <roomcode>TWN_2</roomcode> 
+  <pricepernight>20666.117</pricepernight> 
+  <rateRemark /> 
+  </roominfo>
+ 
+   <roominfo>
+  <roomno>1</roomno> 
+  <roomcode>TWN_2</roomcode> 
+  <pricepernight>20666.117</pricepernight> 
+  <rateRemark /> 
+  </roominfo>
+ 
+
+
+ </roomingPriceDetail>
+  </roomdetail>
+  </hoteldetail>
+
+
+
+<hoteldetail>
+  <hotelTrackId>STGCKVHTRI1721</hotelTrackId> 
+  <address /> 
+  <description /> 
+  <hotelId>1212548</hotelId> 
+  <pincode /> 
+  <phone>011442073884131</phone> 
+  <fax /> 
+  <credicards /> 
+  <checkintime /> 
+  <checkouttime /> 
+  <hotelfacility /> 
+  <roomfacility /> 
+  <meetingfacility /> 
+  <otherfacility>#Fitness Center#Restaurant(s)#Room Service#Bar/Lounge#24-Hour Front Desk#Valet Laundry#Currency Exchange#Business Services#Newsstand#Internet Access#Meeting/Banquet Facilities#Baggage Hold</otherfacility> 
+  <services /> 
+  <restaurants /> 
+  <areatransportation /> 
+  <email /> 
+  <website /> 
+  <location>London,United Kingdom</location> 
+  <cancellationpolicy /> 
+  <hotelname>Radisson Edwardian Grafton - DEMO</hotelname> 
+  <hoteldesc>Some Description for Second Hotel</hoteldesc> 
+  <starrating>4.0</starrating> 
+  <city>london</city> 
+  <country>united kingdom</country> 
+  <map /> 
+  <image /> 
+  <currency>INR</currency> 
+  <isPostSearchRomingApplicable>N</isPostSearchRomingApplicable> 
+  <isExtraInfoRequiredForBooking>N</isExtraInfoRequiredForBooking> 
+<roomdetail>
+  <roomCombId>STGCKVRCMB002771</roomCombId> 
+  <roomtype>Leisure Standard</roomtype> 
+  <AllocationStatus>A</AllocationStatus> 
+  <rateType /> 
+  <inclusion_exclusion /> 
+  <luxurytax>0.0</luxurytax> 
+  <servicetax>0.0</servicetax> 
+  <roombasis /> 
+  <totalPrice>41332</totalPrice> 
+  <isPackage>N</isPackage> 
+  <additionalRoomDtl /> 
+<roomingPriceDetail>
+
+  <roominfo>
+  <roomno>1</roomno> 
+  <roomcode>TWN_2</roomcode> 
+  <pricepernight>20666.117</pricepernight> 
+  <rateRemark /> 
+  </roominfo>
+ 
+   <roominfo>
+  <roomno>1</roomno> 
+  <roomcode>TWN_2</roomcode> 
+  <pricepernight>20666.117</pricepernight> 
+  <rateRemark /> 
+  </roominfo>
+ 
+
+
+ </roomingPriceDetail>
+  </roomdetail>
+  </hoteldetail>
+
+
+  </HotelSearchDetails>
+  </HotelSearchResponse>

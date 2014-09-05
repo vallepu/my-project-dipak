@@ -1,0 +1,210 @@
+<HotelSearchResponse>
+<clientinfo>
+  <clientid>3536</clientid> 
+  <searchId>STGCKVSRHOT214</searchId> 
+  </clientinfo>
+<HotelSearchRequest>
+<hotelinfo>
+  <country>United Kingdom</country> 
+  <city>London</city> 
+  <checkindate>28/01/2010</checkindate> 
+  <noOfNight>2</noOfNight> 
+  <checkoutdate>30/01/2010</checkoutdate> 
+  <nationality>IND</nationality> 
+  <noofrooms>1</noofrooms> 
+  <starrating>4</starrating> 
+  <roomtype/> 
+  </hotelinfo>
+  </HotelSearchRequest>
+
+
+<HotelSearchDetails>
+<hoteldetail>
+  <hotelTrackId>6117</hotelTrackId> 
+  <address/> 
+  <description/> 
+  <hotelId>7617</hotelId> 
+  <pincode/> 
+  <phone></phone> 
+  <fax/> 
+  <credicards/> 
+  <checkintime/> 
+  <checkouttime/> 
+  <hotelfacility/> 
+  <roomfacility/> 
+  <meetingfacility/> 
+  <otherfacility></otherfacility> 
+  <services/> 
+  <restaurants/> 
+  <areatransportation/> 
+  <email/> 
+  <website/> 
+  <location>Hong kong,HONG KONG</location> 
+  <cancellationpolicy/> 
+  <hotelname>HARBOUR PLAZA METROPOLIS HOTEL</hotelname> 
+  <hoteldesc>Pre defied Hotels combination</hoteldesc> 
+  <starrating>4.0</starrating> 
+  <city>Hong kong</city> 
+  <country>HONG KONG</country> 
+  <map/> 
+  <image/> 
+  <currency>USD</currency> 
+  <isPostSearchRomingApplicable>N</isPostSearchRomingApplicable> 
+  <isExtraInfoRequiredForBooking>N</isExtraInfoRequiredForBooking> 
+
+<roomdetail>
+  <roomCombId>7872</roomCombId> 
+  <roomtype>Standard Room</roomtype> 
+  <AllocationStatus>A</AllocationStatus> 
+  <rateType/> 
+  <inclusion_exclusion/> 
+  <luxurytax>0.0</luxurytax> 
+  <servicetax>0.0</servicetax> 
+  <roombasis/> 
+  <totalPrice>623</totalPrice> 
+  <isPackage>N</isPackage> 
+  <additionalRoomDtl/> 
+
+<roomingPriceDetail>
+
+  <roominfo>
+  <roomno>1</roomno> 
+  <roomcode>DBL_2</roomcode> 
+  <pricepernight>311.5</pricepernight> 
+  <rateRemark/> 
+  </roominfo>
+ 
+ </roomingPriceDetail>
+  </roomdetail>
+  </hoteldetail>
+
+
+
+<hoteldetail>
+  <hotelTrackId>9275</hotelTrackId> 
+  <address/> 
+  <description/> 
+  <hotelId>7617</hotelId> 
+  <pincode/> 
+  <phone></phone> 
+  <fax/> 
+  <credicards/> 
+  <checkintime/> 
+  <checkouttime/> 
+  <hotelfacility/> 
+  <roomfacility/> 
+  <meetingfacility/> 
+  <otherfacility></otherfacility> 
+  <services/> 
+  <restaurants/> 
+  <areatransportation/> 
+  <email/> 
+  <website/> 
+  <location>Hong kong,HONG KONG</location> 
+  <cancellationpolicy/> 
+  <hotelname>INTERCONTINENTAL GRAND STANFORD</hotelname> 
+  <hoteldesc>Pre defied Hotels combination</hoteldesc> 
+  <starrating>4.0</starrating> 
+  <city>Hong kong</city> 
+  <country>HONG KONG</country> 
+  <map/> 
+  <image/> 
+  <currency>USD</currency> 
+  <isPostSearchRomingApplicable>N</isPostSearchRomingApplicable> 
+  <isExtraInfoRequiredForBooking>N</isExtraInfoRequiredForBooking> 
+
+<roomdetail>
+  <roomCombId>7872</roomCombId> 
+  <roomtype>Standard Room</roomtype> 
+  <AllocationStatus>A</AllocationStatus> 
+  <rateType/> 
+  <inclusion_exclusion/> 
+  <luxurytax>0.0</luxurytax> 
+  <servicetax>0.0</servicetax> 
+  <roombasis/> 
+  <totalPrice>672</totalPrice> 
+  <isPackage>N</isPackage> 
+  <additionalRoomDtl/> 
+
+<roomingPriceDetail>
+
+  <roominfo>
+  <roomno>1</roomno> 
+  <roomcode>DBL_2</roomcode> 
+  <pricepernight>336</pricepernight> 
+  <rateRemark/> 
+  </roominfo>
+ 
+ </roomingPriceDetail>
+  </roomdetail>
+  </hoteldetail>
+
+
+
+
+<hoteldetail>
+  <hotelTrackId>9275</hotelTrackId> 
+  <address/> 
+  <description/> 
+  <hotelId>9238</hotelId> 
+  <pincode/> 
+  <phone></phone> 
+  <fax/> 
+  <credicards/> 
+  <checkintime/> 
+  <checkouttime/> 
+  <hotelfacility/> 
+  <roomfacility/> 
+  <meetingfacility/> 
+  <otherfacility></otherfacility> 
+  <services/> 
+  <restaurants/> 
+  <areatransportation/> 
+  <email/> 
+  <website/> 
+  <location>Hong kong,HONG KONG</location> 
+  <cancellationpolicy/> 
+  <hotelname>REGAL ORIENTAL HOTEL</hotelname> 
+  <hoteldesc>Pre defied Hotels combination</hoteldesc> 
+  <starrating>4.0</starrating> 
+  <city>Hong kong</city> 
+  <country>HONG KONG</country> 
+  <map/> 
+  <image/> 
+  <currency>USD</currency> 
+  <isPostSearchRomingApplicable>N</isPostSearchRomingApplicable> 
+  <isExtraInfoRequiredForBooking>N</isExtraInfoRequiredForBooking> 
+
+<roomdetail>
+  <roomCombId>7872</roomCombId> 
+  <roomtype>Standard Room</roomtype> 
+  <AllocationStatus>A</AllocationStatus> 
+  <rateType/> 
+  <inclusion_exclusion/> 
+  <luxurytax>0.0</luxurytax> 
+  <servicetax>0.0</servicetax> 
+  <roombasis/> 
+  <totalPrice>355</totalPrice> 
+  <isPackage>N</isPackage> 
+  <additionalRoomDtl/> 
+
+<roomingPriceDetail>
+
+  <roominfo>
+  <roomno>1</roomno> 
+  <roomcode>DBL_2</roomcode> 
+  <pricepernight>177.5</pricepernight> 
+  <rateRemark/> 
+  </roominfo>
+ 
+ </roomingPriceDetail>
+  </roomdetail>
+  </hoteldetail>
+
+
+
+
+
+  </HotelSearchDetails>
+  </HotelSearchResponse>
+
