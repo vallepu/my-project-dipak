@@ -1,0 +1,194 @@
+<html>
+
+<head>
+<LINK rel=stylesheet type=text/css href="http://uat.cnkdev.com/enquiry/resources/defaults/css/css_holiday.css" media=screen>
+<SCRIPT src="uiApi.js"></SCRIPT>
+
+
+<style>
+
+	.dvFrame {position:absolute; background:#dfeef5}
+	.dvFrame th {font-family:arial; font-size:11px; text-align:left}
+	.dvFrame td {font-family:arial; font-size:11px; text-align:left}
+	.dvFrame.dvInner {background:#FFFFFF; text-align:center}
+	.dvFrame TD{text-align:center}
+
+</style>
+
+</head>
+
+<body>
+
+
+<table id=okesh width=100%>
+<!--
+<tr>
+	<td>
+	<a href="javascript:flightSearch('BOM','BLR')">BOM-BLR</a>
+	</td>
+	<td>
+		<a href="javascript:flightSearch('DEL','GOI')">DEL-GOI</a>
+	</td>
+</tr>
+-->
+	<tr>
+	<td id=hsPlots colspan=2 width=75%>
+
+	</td>
+	<td bgcolor=gray>
+	Right
+	</td>
+	</tr>
+</table>
+
+
+
+
+
+<table>
+<tr>
+<td  id=xfsPlot bgcolor=silver valign=top>
+Left Menu
+</td>
+
+<td id=vfsPlot valign=top>
+here
+</td>
+</tr>
+
+
+</table>
+
+</body>
+
+
+
+<style>
+.tdRghtBtm {border-right:gray solid 1px;border-bottom:gray solid 1px;}
+</style>
+
+<SCRIPT>
+
+
+
+  </SCRIPT>
+
+<input id=tourId>
+
+ 
+  <script src="hotelEngine.js"></script>
+ 
+<!--
+  <script src=http://uat.hotelEngine.js></script>
+-->
+
+<script>
+function hotelSearch(){
+if (!(document.hengine))
+{
+	var x = createHotel()
+}
+
+document.hengine = x
+var fx = x.init()
+	fx.pxy = "/folder/dump.html"
+	fx.pxy = "/requestTest.php"
+//	fx.paxpxy = "/folder/bookingForm.php"
+
+	fx.deviate = "3000"
+	fx.hfrm.country.value = "united kingdom"
+	fx.hfrm.city.value = "london"
+	fx.hfrm.checkin.value = "25/06/2010"
+	fx.hfrm.checkout.value = "28/06/2010"
+	fx.hfrm.rooms.selectValue(1)
+	fx.hfrm.roomtype1.selectValue("DBL_2")
+	fx.hfrm.roomtype2.selectValue("SGL_1")
+	fx.hfrm.book = 1
+	fx.hfrm.tourId.value = 7484 //document.getElementById('tourId').value
+	fx.hfrm.brocId.value = 342 //document.getElementById('tourId').value
+//	fx.hfrm.roomtype2.selectValue("DBL_2")
+
+//	fx.hfrm.submit()
+}
+
+
+
+function hotelSelected(doc,hotelDetail){
+/*
+
+Following fields can be extracted using the hotelDetail.getFld("-------------") function
+----------------------------------------------------------------------------------------
+
+PACKAGE,COMBINATIONID,HOTELID,FLEXIHOTELNAME,cityid,CITYNAME,Nights,HCATEGORYNAME,ROOMNAME,SCHEMEID,PSCHEMENAME,
+DURATIONID,ROOMCODE,PAXCODE,PAXID,COSTTYPE,COSTDESCRIPTION,PAXDESCRIPTION,CURRENCY,AMOUNT,surchg,IsHotelDefault,
+IsRoomDefault,COUNTRY_NAME,id,searchId,address,phone,fax,email,website,checkintime,checkouttime
+
+*/
+
+var rc = hotelDetail.recordCount()
+hotelDetail.reset()
+
+
+		alert("Hotel Name : " + hotelDetail.getFld("FLEXIHOTELNAME") + "\nComb Id : "+ hotelDetail.getFld("COMBINATIONID") + "\nRoom Code : "+ hotelDetail.getFld("ROOMCODE")) //getNodeValue(rooming[i],"roomcode")
+		//dv.appendChild(elm)
+
+
+
+
+}
+
+
+
+function hotelBookingComplete(hotelDetail,bookingDetail){
+
+
+//alert("called")
+
+//alert(hotelDetail.recordCount() + "\n " + bookingDetail.xml)
+
+
+var rc = hotelDetail.recordCount()
+//alert("HD C : " + rc)
+
+hotelDetail.reset()
+
+
+for (var i=0;i<rc;i++)
+{
+//alert(hotelDetail.pointer);
+
+		//var elm = htlForm.clhfrm.createInput("RoomCode" + (i + 1))
+		alert("Hotel Name : " + hotelDetail.getFld("FLEXIHOTELNAME") + "\nComb Id : "+ hotelDetail.getFld("COMBINATIONID") + "\nRoom Code : "+ hotelDetail.getFld("ROOMCODE")) //getNodeValue(rooming[i],"roomcode")
+		//dv.appendChild(elm)
+
+		hotelDetail.nextRecord()
+}
+
+
+
+
+var ta = document.createElement("TEXTAREA")
+ta.value = hotelDetail.xml
+document.body.appendChild(ta)
+
+
+var ta = document.createElement("TEXTAREA")
+ta.value = bookingDetail.xml
+document.body.appendChild(ta)
+
+}
+
+
+</script>
+
+
+<a onclick="hotelSearch()">One</a><br>
+<a onclick="fSRCH.show('<a onclick=alert(fSRCH.resultContainer.sshow)>One</a>')">Two</a><br>
+
+
+<hr>
+<div id=vhsPlot>
+
+</div>
+
+</html>

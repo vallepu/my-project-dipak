@@ -1,0 +1,10 @@
+<HotelBookingResponse>
+<clientinfo>
+<clientid>1193</clientid>
+<searchId>SRHOT896</searchId>
+</clientinfo>
+<BookingDetails>
+<BookingRefernceNumber>TST-2007-03495</BookingRefernceNumber>
+<BookingDescription>Booking Done Successfully</BookingDescription>
+</BookingDetails>
+</HotelBookingResponse>
